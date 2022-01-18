@@ -2,7 +2,7 @@
   "name": "image-processing-api",
   "version": "1.0.0",
   "description": "udacity image processing api project",
-  "main": "src/index.ts",
+  "main": "index.js",
   "scripts": {
     "test": "npm run build && npm run jasmine",
     "lint": "eslint src/**/**.ts",
@@ -29,6 +29,7 @@
     "typescript": "^4.5.4"
   },
   "dependencies": {
+    "express": "^4.17.2",
     "g": "^2.0.1"
   }
 }
