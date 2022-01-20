@@ -3,7 +3,7 @@ import routes from "./routes";
 import path from "path";
 const app = express();
 
-const port: number = 3000;
+const port = 3000;
 app.use("/images", express.static(path.resolve(__dirname, `../images`)));
 app.use(
   "/imagesThumb",
