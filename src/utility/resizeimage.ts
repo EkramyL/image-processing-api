@@ -1,27 +1,23 @@
-import express from "express";
 import path from "path";
 import sharp from "sharp";
 
-const imagesFolder: string = path.resolve(__dirname, "../../images");
-const imagesThumbFolder: string = path.resolve(__dirname, "../../imagesThumb");
-
-const resize = async (
+const resizeImage = async (
+  imageName: string,
   width: number,
-  height: number,
-  filename: string
-): Promise<void> => {
-  const imagePath = path.join(imagesFolder, `${filename}.jpg`);
-  const imageThumbPath = path.join(
-    imagesThumbFolder,
-    `${filename}_${width}_${height}.jpg`
+  height: number
+): Promise<boolean> => {
+  const imagePath = path.resolve(__dirname, `../../images/${imageName}.jpg`);
+  const imageThumbPath = path.resolve(
+    __dirname,
+    `../../imagesThumb/${imageName}_${width}_${height}.jpg`
   );
+
   try {
-    await sharp(imagePath)
-      .resize(Number(width), Number(height))
-      .toFile(imageThumbPath);
-  } catch (error) {
-    throw new Error("Something went wrong.");
+    await sharp(imagePath).resize({ width, height }).toFile(imageThumbPath);
+    return true;
+  } catch {
+    return false;
   }
 };
 
-export default resize;
+export default resizeImage;
