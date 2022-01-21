@@ -1,8 +1,9 @@
 import supertest from "supertest";
 import app from "../index";
-import resizeImage from "../utility/resizeImage";
+import resizeimage from "../utility/resizeimage";
 import fs from "fs";
 import path from "path";
+import validateUrl from "../utility/validateUrl";
 const request = supertest(app);
 
 describe("Test endpoint responses", () => {
@@ -14,7 +15,20 @@ describe("Test endpoint responses", () => {
 });
 
 describe("Testing the resizeimage function", async () => {
-  await resizeImage("encenadaport", 500, 500);
+  await resizeimage("encenadaport", 500, 500);
+});
+
+it("an image by the name of encenadaport_500_500.jpg should be in image", () => {
+  const imageThumbPath = path.resolve(
+    __dirname,
+    `../../imagesThumb/encenadaport_500_500.jpg`
+  );
+  const resizedImgExists = fs.existsSync(imageThumbPath);
+  expect(resizedImgExists).toBeTrue();
+});
+
+describe("Testing the validateUrl", async () => {
+  await validateUrl("encenadaport", 500, 500);
 });
 
 it("an image by the name of encenadaport_500_500.jpg should be in image", () => {
