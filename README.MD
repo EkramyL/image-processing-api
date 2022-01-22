@@ -28,6 +28,11 @@
 
 # Notes:
 
+- # about ts-node:
+- i found error to start code with ts-node (ts-node' is not recognized as an internal or external command),
+  and when i googled it found that the solution is to install ts-node globally (npm install -g ts-node) if you
+  faced such error you can consider that approach.
+
 - # about jasmine:
 - found some issues with testing my endpoint with the last version of jasmine 4.0.2 and when i googled the issue
   the main thing i understood is to revert back to an older version of jasmine which worked (v 3.10.2) so if you faced the same

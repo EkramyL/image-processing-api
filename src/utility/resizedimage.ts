@@ -1,7 +1,7 @@
 import path from "path";
 import sharp from "sharp";
 
-const resizeImage = async (
+const resizedimage = async (
   imageName: string,
   width: number,
   height: number
@@ -20,4 +20,4 @@ const resizeImage = async (
   }
 };
 
-export default resizeImage;
+export default resizedimage;
