@@ -1,6 +1,6 @@
 import supertest from "supertest";
 import app from "../index";
-import resizeImage from "../utility/resizeImage";
+import resizedimage from "../utility/resizedimage";
 import fs from "fs";
 import path from "path";
 const request = supertest(app);
@@ -14,7 +14,7 @@ describe("Test endpoint responses", () => {
 });
 
 describe("Testing the resizeimage function", async () => {
-  await resizeImage("encenadaport", 500, 500);
+  await resizedimage("encenadaport", 500, 500);
 });
 
 it("an image by the name of encenadaport_500_500.jpg should be in image", () => {
